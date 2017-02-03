@@ -89,7 +89,7 @@ RemTc = rowSums(x = FinalPay) # SeRIA EL REM
 
 Pago = pmin(RemTc, 1)
 # B- CALCULAR PRECIO DE B SUM DE TIPOS DE INTERES MULTIPLICADOS POR DT
-
+# Este BONO TIENE QUE SER UTILIZANDO EXP(COLSUM)
 Bono = colSums(r[2:(nobs+1),]*dt)
     
 # MEAN(A/B)
@@ -98,3 +98,6 @@ mean(Pago/Bono)
 
 P0 = exp(x = -r0*Tcanc)*mean(Pago/Bono)
 P0
+
+# CUPONES UTILIZO VASICEKCC PRECIO DEL BONO P(0,1)*C*TAU + P(0,2)*C*TAU... + P(0,5)*C*TAU
+# P(0,1) SE CALCULA UTILIZANDO LA FORMULA DADA
