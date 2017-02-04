@@ -99,7 +99,9 @@ Pago = pmin(RemTc, 1)
 # B- CALCULAR PRECIO DE B SUM DE TIPOS DE INTERES MULTIPLICADOS POR DT
 # Este BONO TIENE QUE SER UTILIZANDO EXP(COLSUM)
 Bono = exp(x = -colSums(r[2:(nobs+1),]*dt))
-
+mean(Bono)
+# mean(Bono) deberia ser igual a VasicekZeroCuponPrecio()
+VasicekZeroCuponPrecio(r0 = r0, a = a, b = b, sig = v, T = (Tcanc - Tvenc))
 # MEAN(A/B)
 
 mean(Pago/Bono) # Da ya el valor descontado al utilizar el Bono como numerario
